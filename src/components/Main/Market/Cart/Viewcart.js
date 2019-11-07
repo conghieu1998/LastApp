@@ -1,0 +1,211 @@
+import React, {Component} from 'react';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  ScrollView,
+  Alert
+} from 'react-native';
+import {Dimensionapp} from '../../../../unit/Dimensionapp';
+
+export default class Viewcart extends Component {
+  
+  render () {
+    const showAlert = () =>{
+      Alert.alert(
+         'Số tiền phải thanh toán: 515.000đ'
+      )
+   }
+    return (
+      <View style={styles.wrapper}>
+        <View style={styles.header}>
+          <View style={styles.headertop}>
+            <TouchableOpacity>
+              <Image
+                style={styles.imgheader}
+                source={require ('../../../../../images/back.png')}
+              />
+            </TouchableOpacity>
+            <Text style={styles.txtheader}>Giỏ hàng</Text>
+            <TouchableOpacity>
+              <Image
+                style={styles.imgheader}
+                source={require ('../../../../../images/delete-white.png')}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.headerbottom}>
+            <Text>Giao sớm nhất</Text>
+            <Text>Ngày mai, 9h-11h</Text>
+          </View>
+        </View>
+        <ScrollView style={styles.container}>
+            <View style={styles.product}>
+              <Image
+                style={styles.imgprd}
+                source={require ('../../../../../images/prd.jpg')}
+              />
+              <View style={{marginTop: 15}}>
+                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+                <Text style={styles.txtquaility}>1(500g/gói)</Text>
+              </View>
+              <Text style={styles.txtprice}>165.000đ</Text>
+            </View>
+            <View style={styles.product}>
+              <Image
+                style={styles.imgprd}
+                source={require ('../../../../../images/prd.jpg')}
+              />
+              <View style={{marginTop: 15}}>
+                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+                <Text style={styles.txtquaility}>1(500g/gói)</Text>
+              </View>
+              <Text style={styles.txtprice}>165.000đ</Text>
+            </View>
+            <View style={styles.product}>
+              <Image
+                style={styles.imgprd}
+                source={require ('../../../../../images/prd.jpg')}
+              />
+              <View style={{marginTop: 15}}>
+                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+                <Text style={styles.txtquaility}>1(500g/gói)</Text>
+              </View>
+              <Text style={styles.txtprice}>165.000đ</Text>
+            </View>
+            <View style={styles.product}>
+              <Image
+                style={styles.imgprd}
+                source={require ('../../../../../images/prd.jpg')}
+              />
+              <View style={{marginTop: 15}}>
+                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+                <Text style={styles.txtquaility}>1(500g/gói)</Text>
+              </View>
+              <Text style={styles.txtprice}>165.000đ</Text>
+            </View>
+        </ScrollView>
+        <View style={styles.bottom}>
+          <View style={styles.price}>
+            <View>
+              <View style={styles.priceprd}>
+                <Text style={styles.txtnameprice}>Tiền hàng</Text>
+              </View>
+
+              <Text style={styles.txtpricesum}>495.000</Text>
+            </View>
+            <View>
+              <View style={styles.priceprd}>
+                <Text style={styles.txtnameprice}>Tiền ship</Text>
+              </View>
+
+              <Text style={styles.txtpricesum}>20.000</Text>
+            </View>
+            <View>
+              <View style={styles.priceprd}>
+                <Text style={styles.txtnameprice}>Tổng cộng</Text>
+              </View>
+
+              <Text style={styles.txtpricesum}>515.000</Text>
+            </View>
+          </View>
+          <TouchableOpacity style={styles.order} onPress={showAlert}>
+            <Text style={styles.txtorder}>Thanh toán ngay</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create ({
+  wrapper: {
+    flex: 1,
+  },
+  header: {
+    height: Dimensionapp.getHeight () / 10,
+  },
+  headertop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    backgroundColor: 'salmon',
+  },
+  imgheader: {
+    height: 35,
+    width: 35,
+  },
+  txtheader: {
+    fontSize: 30,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  headerbottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    backgroundColor: 'chartreuse',
+  },
+  container: {
+    backgroundColor: '#fff',
+    margin: 10,
+  },
+  product: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  imgprd: {
+    height: Dimensionapp.getHeight () / 6,
+    width: Dimensionapp.getHeight () / 6,
+  },
+  txtnameprd: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  txtquaility: {
+    color: 'gray',
+    marginTop: 10,
+  },
+  txtprice: {
+    fontSize: 18,
+    color: 'salmon',
+    fontWeight: 'bold',
+    marginTop: 15,
+  },
+  price: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  priceprd: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  },
+  txtnameprice: {
+    fontSize: 18,
+    color: 'gray',
+    padding: 5,
+  },
+  txtpricesum: {
+    padding: 5,
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  order: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'salmon',
+    marginLeft: 20,
+    marginRight: 20,
+    borderRadius: 30,
+    marginBottom:20
+  },
+  txtorder: {
+    padding: 10,
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+});
