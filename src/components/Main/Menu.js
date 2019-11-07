@@ -10,18 +10,18 @@ class Login extends Component {
   static navigationOptions = {
     header: null,
   };
-  render () {
+  render() {
     return (
       <View style={{flex: 1, backgroundColor: 'salmon'}}>
         <View style={styles.body}>
-          <View style={{padding:10}}>
+          <View style={{padding: 10}}>
             <Image
               style={{
                 width: 100,
                 height: 100,
                 borderRadius: 50,
               }}
-              source={require ('../../../images/hieu.jpg')}
+              source={require('../../../images/hieu.jpg')}
             />
             <Text style={styles.text}>Bạch Công Hiếu</Text>
           </View>
@@ -30,12 +30,14 @@ class Login extends Component {
             <TouchableOpacity style={styles.btnSignin}>
               <Text style={styles.btnTxtSign}>Thông tin đơn hàng</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.btnSignin}
-            onPress={()=>this.props.navigation.push('Info')}>
+            <TouchableOpacity
+              style={styles.btnSignin}
+              onPress={() => this.props.navigation.push('Info')}>
               <Text style={styles.btnTxtSign}>Thông tin người dùng</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.btnSignin}
-            onPress={()=> this.props.navigation.pop()}>
+            <TouchableOpacity
+              style={styles.btnSignin}
+              onPress={() => this.props.navigation.pop()}>
               <Text style={styles.btnTxtSign}>Đăng xuất</Text>
             </TouchableOpacity>
           </View>
@@ -50,18 +52,17 @@ class Menu extends Component {
   static navigationOptions = {
     header: null,
   };
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {isLogin: false};
   }
 
-  render () {
+  render() {
     const logout = (
       <View>
         <TouchableOpacity
           style={styles.btn}
-          onPress={() => this.props.navigation.push('Login')}
-        >
+          onPress={() => this.props.navigation.push('Login')}>
           <Text style={styles.btnTxt}>Đăng nhập</Text>
         </TouchableOpacity>
       </View>
@@ -72,7 +73,7 @@ class Menu extends Component {
       <View style={styles.container}>
         <Image
           style={styles.imageInfo}
-          source={require ('../../../images/userinfo.png')}
+          source={require('../../../images/userinfo.png')}
         />
         {main}
       </View>
@@ -80,7 +81,7 @@ class Menu extends Component {
   }
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'salmon',
@@ -131,16 +132,17 @@ const styles = StyleSheet.create ({
 });
 
 // const StackMenu = createStackNavigator({})
-const RootStack = createStackNavigator ({
-  Home: Menu,
-  Login:{screen: Authentication},
-  Info: Info,
-},
-{
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
-  }}
+const RootStack = createStackNavigator({
+    Home: Menu,
+    Login: {screen: Authentication},
+    Info: Info,
+  },
+  {
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    },
+  },
 );
 
-export default createAppContainer (RootStack);
+export default createAppContainer(RootStack);

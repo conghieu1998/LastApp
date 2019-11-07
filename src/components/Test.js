@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import {Button, View, Text} from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
 class HomeScreen extends React.Component {
-    static navigationOptions = {
-        header: null
-    }
+  static navigationOptions = {
+    header: null,
+  };
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Home Screesssn</Text>
         <Button
           title="Go to Details"
@@ -23,7 +23,7 @@ class HomeScreen extends React.Component {
 class DetailsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Details Screen</Text>
         <Button
           title="Go to Details... again"
@@ -37,8 +37,7 @@ class DetailsScreen extends React.Component {
 const RootStack = createStackNavigator({
   Home: HomeScreen,
   Details: DetailsScreen,
-}
-);
-
+});
 
 export default createAppContainer(RootStack);
+
