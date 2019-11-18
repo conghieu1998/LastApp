@@ -5,11 +5,9 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Info from '../Info/Info';
 import Authentication from '../Authentication/Authentication';
+import Signin from '../Authentication/Signin';
 
 class Login extends Component {
-  static navigationOptions = {
-    header: null,
-  };
   render() {
     return (
       <View style={{flex: 1, backgroundColor: 'salmon'}}>
@@ -49,9 +47,6 @@ class Login extends Component {
 }
 
 class Menu extends Component {
-  static navigationOptions = {
-    header: null,
-  };
   constructor(props) {
     super(props);
     this.state = {isLogin: false};
@@ -131,10 +126,10 @@ const styles = StyleSheet.create({
   },
 });
 
-// const StackMenu = createStackNavigator({})
-const RootStack = createStackNavigator({
+const RootStack = createStackNavigator(
+  {
     Home: Menu,
-    Login: {screen: Authentication},
+    Login: {screen: Signin},
     Info: Info,
   },
   {

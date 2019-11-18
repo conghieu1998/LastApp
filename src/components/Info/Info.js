@@ -7,8 +7,6 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
 
 export default class Info extends Component {
   static navigationOptions = {
@@ -18,14 +16,14 @@ export default class Info extends Component {
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
-          <View />
-          <Text style={styles.headerTitle}>Thông tin người dùng</Text>
           <TouchableOpacity onPress={() => this.props.navigation.pop()}>
             <Image
-              source={require('../../../images/next.png')}
+              source={require('../../../images/back.png')}
               style={styles.backIconStyle}
             />
           </TouchableOpacity>
+          <Text style={styles.headerTitle}>Thông tin người dùng</Text>
+          <View />
         </View>
         <View style={styles.body}>
           <TextInput
@@ -42,6 +40,7 @@ export default class Info extends Component {
             style={styles.textInput}
             placeholder="Nhập số điện thoại"
             underlineColorAndroid="transparent"
+            keyboardType="numeric"
           />
           <TouchableOpacity style={styles.signInContainer}>
             <Text style={styles.signInTextStyle}>Lưu</Text>
@@ -53,8 +52,8 @@ export default class Info extends Component {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {flex: 1, backgroundColor: '#fff', position: 'absolute'},
-    header: { flex: 1, backgroundColor: 'salmon', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', paddingHorizontal: 5 },// eslint-disable-line
+  wrapper: {flex: 1, backgroundColor: '#fff'},
+  header: { flex: 1, backgroundColor: 'salmon', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', paddingHorizontal: 5 },// eslint-disable-line
   headerTitle: {fontFamily: 'Avenir', color: '#fff', fontSize: 15},
   backIconStyle: {width: 25, height: 25},
   body: {flex: 10, backgroundColor: '#F6F6F6', justifyContent: 'center'},

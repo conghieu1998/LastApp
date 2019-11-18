@@ -1,4 +1,4 @@
-import React, {Component} from 'react';;
+import React, {Component} from 'react';
 import {
   Text,
   View,
@@ -6,8 +6,8 @@ import {
   StyleSheet,
   Image,
   TextInput,
-} from 'react-native';;
-import {Dimensionapp} from '../../unit/Dimensionapp';;
+} from 'react-native';
+import {Dimensionapp} from '../../unit/Dimensionapp';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Signin from './Signin';
@@ -74,11 +74,11 @@ export default class Authentication extends Component {
           </TouchableOpacity>
         </View>
       </View>
-    );;
+    );
   }
 }
 
-const styles  = StyleSheet.create({
+const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: 'salmon',
@@ -99,8 +99,7 @@ const styles  = StyleSheet.create({
   },
   control: {
     flexDirection: 'row',
-
-    },
+  },
   signin: {
     backgroundColor: '#fff',
     flex: 1,
@@ -155,4 +154,4 @@ const styles  = StyleSheet.create({
     fontSize: 20,
     color: '#fff',
   },
-});;
+});

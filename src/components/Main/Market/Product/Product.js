@@ -6,32 +6,47 @@ import {
   Image,
   StyleSheet,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {Dimensionapp} from '../../../../unit/Dimensionapp';
-import { TextInput } from 'react-native-gesture-handler';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {TextInput} from 'react-native-gesture-handler';
+import Cart from '../Cart/Cart';
 
-export default class Product extends Component {
-  render () {
+class Product extends Component {
+  render() {
     return (
-      <View style={styles.wrapper}>
+      <ScrollView style={styles.wrapper}>
         <View style={styles.cardStyle}>
           <View style={styles.header}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.pop()}>
               <Image
                 style={styles.backStyle}
-                source={require ('../../../../../images/back-salmon.png')}
+                source={require('../../../../../images/back-salmon.png')}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                Alert.alert('Thông báo', 'Thêm vào giỏ hàng thành công', [
+                  {
+                    text: 'Tiếp tục mua hàng',
+                    onPress: () => this.props.navigation.pop(),
+                  },
+                  {
+                    text: 'Ok',
+                  },
+                ])
+              }>
               <Image
                 style={styles.cartStyle}
-                source={require ('../../../../../images/cart-select.png')}
+                source={require('../../../../../images/cart-select.png')}
               />
             </TouchableOpacity>
           </View>
           <View style={styles.imageContainer}>
             <Image
-              source={require ('../../../../../images/prd.jpg')}
+              source={require('../../../../../images/prd.jpg')}
               style={styles.productImageStyle}
             />
           </View>
@@ -42,41 +57,44 @@ export default class Product extends Component {
               <Text style={styles.textSmoke}>500g/gói</Text>
             </View>
             <View style={styles.mart}>
-                <Image style={styles.imgmart} source={require('../../../../../images/lotte.png')}/>
-                <Text style={styles.txtmart}>LotteMart</Text>
+              <Image
+                style={styles.imgmart}
+                source={require('../../../../../images/lotte.png')}
+              />
+              <Text style={styles.txtmart}>LotteMart</Text>
             </View>
             <View style={styles.info}>
-                <View style={styles.infos}>
-                    <Text style={styles.txtinfo}>Giờ giao trong ngày</Text>
-                    <Text style={styles.txtinfos}>Sáng 9h-11h / Chiều 3h-5h</Text>
-                </View>
-                <View style={styles.infos}>
-                    <Text style={styles.txtinfo}>Cần đặt trước</Text>
-                    <Text style={styles.txtinfos}>1 giờ</Text>
-                </View>
-                <View style={styles.infos}>
-                    <Text style={styles.txtinfo}>Nhãn hiệu</Text>
-                    <Text style={styles.txtinfos}>LotteMart</Text>
-                </View>
-                <View style={styles.infos}>
-                    <Text style={styles.txtinfo}>Giá hiện tại</Text>
-                    <Text style={styles.txtinfos}>Bằng giá cửa hàng</Text>
-                </View>
+              <View style={styles.infos}>
+                <Text style={styles.txtinfo}>Giờ giao trong ngày</Text>
+                <Text style={styles.txtinfos}>Sáng 9h-11h / Chiều 3h-5h</Text>
+              </View>
+              <View style={styles.infos}>
+                <Text style={styles.txtinfo}>Cần đặt trước</Text>
+                <Text style={styles.txtinfos}>1 giờ</Text>
+              </View>
+              <View style={styles.infos}>
+                <Text style={styles.txtinfo}>Nhãn hiệu</Text>
+                <Text style={styles.txtinfos}>LotteMart</Text>
+              </View>
+              <View style={styles.infos}>
+                <Text style={styles.txtinfo}>Giá hiện tại</Text>
+                <Text style={styles.txtinfos}>Bằng giá cửa hàng</Text>
+              </View>
             </View>
             <View style={styles.descContainer}>
               <Text style={styles.descStyle}>
-                Ghi chú: Sản phẩm thực tế có thể hơi khác so với hình ảnh hiển thị.
+                Ghi chú: Sản phẩm thực tế có thể hơi khác so với hình ảnh hiển
+                thị.
               </Text>
-
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#D6D6D6',
@@ -104,8 +122,8 @@ const styles = StyleSheet.create ({
     height: 35,
   },
   productStyle: {
-    width: Dimensionapp.getWidth () / 2,
-    height: Dimensionapp.getWidth () / 2,
+    width: Dimensionapp.getWidth() / 2,
+    height: Dimensionapp.getWidth() / 2,
   },
   footer: {
     flex: 6,
@@ -148,8 +166,8 @@ const styles = StyleSheet.create ({
     color: '#7D59C8',
   },
   productImageStyle: {
-    width: Dimensionapp.getWidth () - 50,
-    height: Dimensionapp.getHeight () / 4,
+    width: Dimensionapp.getWidth() - 50,
+    height: Dimensionapp.getHeight() / 4,
   },
   mainRight: {
     justifyContent: 'space-between',
@@ -168,37 +186,51 @@ const styles = StyleSheet.create ({
     fontWeight: '400',
     fontFamily: 'Avenir',
   },
-  info:{
-      padding:20
+  info: {
+    padding: 20,
   },
-  infos:{
-      flexDirection:'row',
-      justifyContent:'space-between',
-      borderBottomWidth:1,
-      borderColor:'gray',
-      padding:5
+  infos: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderColor: 'gray',
+    padding: 5,
   },
-  txtinfo:{
-      fontSize:16,
-      fontWeight:'bold'
+  txtinfo: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
-  txtinfos:{
-      color:'salmon',
-      fontWeight:'bold'
+  txtinfos: {
+    color: 'salmon',
+    fontWeight: 'bold',
   },
-  mart:{
-      padding:20,
-      borderColor:'gray',
-      borderBottomWidth:1,
-      flexDirection:'row'
+  mart: {
+    padding: 20,
+    borderColor: 'gray',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
   },
-  imgmart:{
-      height:60,
-      width:60
+  imgmart: {
+    height: 60,
+    width: 60,
   },
-  txtmart:{
-      fontSize:30,
-      marginLeft:10,
-      fontWeight:'bold'
-  }
+  txtmart: {
+    fontSize: 30,
+    marginLeft: 10,
+    fontWeight: 'bold',
+  },
 });
+const RootStack = createStackNavigator(
+  {
+    Home: Product,
+    Cart: {screen: Cart},
+  },
+  {
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    },
+  },
+);
+
+export default createAppContainer(RootStack);

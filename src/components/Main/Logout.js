@@ -37,9 +37,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const RootStack =  createStackNavigator({
-  Home: Logout,
-
+const RootStack = createStackNavigator({
+  Home: {screen: Logout},
 });
 
 export default createAppContainer(RootStack);

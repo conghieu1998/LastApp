@@ -1,12 +1,9 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React, {Component} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+import MapView from 'react-native-maps';
 
 export default class Taikhoan extends Component {
-    render() {
-        return (
-            <View>
-                <Text> Tài khoản </Text>
-            </View>
-        )
-    }
+  render() {
+    return <MapView style={{flex: 1}} />;
+  }
 }

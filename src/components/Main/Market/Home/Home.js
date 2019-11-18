@@ -13,27 +13,26 @@ import Product from './Product';
 import Header from '../../Header';
 
 export default class Home extends Component {
-  openMenu () {
+  openMenu() {
     const {onOpen} = this.props;
-    onOpen ();
+    onOpen();
   }
-  render () {
+  render() {
     const {types, products} = this.props;
     return (
-      <View style={{flex:1}}>
+      <View style={{flex: 1}}>
         <View style={styles.topbar}>
-          <Header onOpen1={this.openMenu.bind (this)} />
+          <Header onOpen1={this.openMenu.bind(this)} />
         </View>
         <ScrollView style={styles.home}>
           <Collection />
-          <Product />
         </ScrollView>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   home: {
     flex: 1,
     backgroundColor: 'gainsboro',

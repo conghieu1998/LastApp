@@ -1,59 +1,50 @@
 import React, {Component} from 'react';
-import {Text, View,TouchableOpacity,Image,StyleSheet,ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 import Header from '../../Header';
-import {Dimensionapp} from '../../../../unit/Dimensionapp'
+import {Dimensionapp} from '../../../../unit/Dimensionapp';;
+import Product from '../Home/Product';
 
 export default class Cuahang extends Component {
-  openMenu () {
+  openMenu() {
     const {onOpen} = this.props;
-    onOpen ();
+    onOpen();
   }
-  render () {
+  render() {
     return (
       <View style={styles.wrapper}>
-        <Header onOpen1={this.openMenu.bind (this)} />
-        <ScrollView style={styles.container}>
-            <TouchableOpacity style={styles.mart}>
-              <Image style={styles.imgmart} source={require('../../../../../images/lotte.png')}/>
-              <Text style={styles.txtmart}>LotteMart</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.mart}>
-              <Image style={styles.imgmart} source={require('../../../../../images/lotte.png')}/>
-              <Text style={styles.txtmart}>LotteMart</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.mart}>
-              <Image style={styles.imgmart} source={require('../../../../../images/lotte.png')}/>
-              <Text style={styles.txtmart}>LotteMart</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.mart}>
-              <Image style={styles.imgmart} source={require('../../../../../images/lotte.png')}/>
-              <Text style={styles.txtmart}>LotteMart</Text>
-            </TouchableOpacity>
-        </ScrollView>
+        <Header onOpen1={this.openMenu.bind(this)} />
+        <Product />
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  wrapper:{
-    flex:1,
+  wrapper: {
+    flex: 1,
   },
-  container:{
-    paddingTop:10,
+  container: {
+    paddingTop: 10,
   },
-  mart:{
-    justifyContent:'center',
-    alignItems:'center',
-    borderBottomWidth:1,
-    borderRightColor:'gray',
-    marginTop:10
+  mart: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderRightColor: 'gray',
+    marginTop: 10,
   },
-  imgmart:{
-    height:Dimensionapp.getHeight()/5,
-    width: Dimensionapp.getWidth()/1.2
+  imgmart: {
+    height: Dimensionapp.getHeight() / 5,
+    width: Dimensionapp.getWidth() / 1.2,
   },
-  txtmart:{
-    fontSize:25,
-    fontWeight:'bold'
-  }
-})
+  txtmart: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+});;

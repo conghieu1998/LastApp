@@ -6,33 +6,25 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  Alert
+  Alert,
 } from 'react-native';
 import {Dimensionapp} from '../../../../unit/Dimensionapp';
 
 export default class Viewcart extends Component {
-  
-  render () {
-    const showAlert = () =>{
-      Alert.alert(
-         'Số tiền phải thanh toán: 515.000đ'
-      )
-   }
+  render() {
+    const showAlert = () => {
+      Alert.alert('Số tiền phải thanh toán: 515.000đ');
+    };
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
           <View style={styles.headertop}>
-            <TouchableOpacity>
-              <Image
-                style={styles.imgheader}
-                source={require ('../../../../../images/back.png')}
-              />
-            </TouchableOpacity>
+            <View />
             <Text style={styles.txtheader}>Giỏ hàng</Text>
             <TouchableOpacity>
               <Image
                 style={styles.imgheader}
-                source={require ('../../../../../images/delete-white.png')}
+                source={require('../../../../../images/delete-white.png')}
               />
             </TouchableOpacity>
           </View>
@@ -42,50 +34,50 @@ export default class Viewcart extends Component {
           </View>
         </View>
         <ScrollView style={styles.container}>
-            <View style={styles.product}>
-              <Image
-                style={styles.imgprd}
-                source={require ('../../../../../images/prd.jpg')}
-              />
-              <View style={{marginTop: 15}}>
-                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
-                <Text style={styles.txtquaility}>1(500g/gói)</Text>
-              </View>
-              <Text style={styles.txtprice}>165.000đ</Text>
+          <View style={styles.product}>
+            <Image
+              style={styles.imgprd}
+              source={require('../../../../../images/prd.jpg')}
+            />
+            <View style={{marginTop: 15}}>
+              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+              <Text style={styles.txtquaility}>1(500g/gói)</Text>
             </View>
-            <View style={styles.product}>
-              <Image
-                style={styles.imgprd}
-                source={require ('../../../../../images/prd.jpg')}
-              />
-              <View style={{marginTop: 15}}>
-                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
-                <Text style={styles.txtquaility}>1(500g/gói)</Text>
-              </View>
-              <Text style={styles.txtprice}>165.000đ</Text>
+            <Text style={styles.txtprice}>165.000đ</Text>
+          </View>
+          <View style={styles.product}>
+            <Image
+              style={styles.imgprd}
+              source={require('../../../../../images/prd.jpg')}
+            />
+            <View style={{marginTop: 15}}>
+              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+              <Text style={styles.txtquaility}>1(500g/gói)</Text>
             </View>
-            <View style={styles.product}>
-              <Image
-                style={styles.imgprd}
-                source={require ('../../../../../images/prd.jpg')}
-              />
-              <View style={{marginTop: 15}}>
-                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
-                <Text style={styles.txtquaility}>1(500g/gói)</Text>
-              </View>
-              <Text style={styles.txtprice}>165.000đ</Text>
+            <Text style={styles.txtprice}>165.000đ</Text>
+          </View>
+          <View style={styles.product}>
+            <Image
+              style={styles.imgprd}
+              source={require('../../../../../images/prd.jpg')}
+            />
+            <View style={{marginTop: 15}}>
+              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+              <Text style={styles.txtquaility}>1(500g/gói)</Text>
             </View>
-            <View style={styles.product}>
-              <Image
-                style={styles.imgprd}
-                source={require ('../../../../../images/prd.jpg')}
-              />
-              <View style={{marginTop: 15}}>
-                <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
-                <Text style={styles.txtquaility}>1(500g/gói)</Text>
-              </View>
-              <Text style={styles.txtprice}>165.000đ</Text>
+            <Text style={styles.txtprice}>165.000đ</Text>
+          </View>
+          <View style={styles.product}>
+            <Image
+              style={styles.imgprd}
+              source={require('../../../../../images/prd.jpg')}
+            />
+            <View style={{marginTop: 15}}>
+              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+              <Text style={styles.txtquaility}>1(500g/gói)</Text>
             </View>
+            <Text style={styles.txtprice}>165.000đ</Text>
+          </View>
         </ScrollView>
         <View style={styles.bottom}>
           <View style={styles.price}>
@@ -120,12 +112,12 @@ export default class Viewcart extends Component {
   }
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
   },
   header: {
-    height: Dimensionapp.getHeight () / 10,
+    height: Dimensionapp.getHeight() / 10,
   },
   headertop: {
     flexDirection: 'row',
@@ -157,8 +149,8 @@ const styles = StyleSheet.create ({
     justifyContent: 'space-between',
   },
   imgprd: {
-    height: Dimensionapp.getHeight () / 6,
-    width: Dimensionapp.getHeight () / 6,
+    height: Dimensionapp.getHeight() / 6,
+    width: Dimensionapp.getHeight() / 6,
   },
   txtnameprd: {
     fontSize: 18,
@@ -200,7 +192,7 @@ const styles = StyleSheet.create ({
     marginLeft: 20,
     marginRight: 20,
     borderRadius: 30,
-    marginBottom:20
+    marginBottom: 20,
   },
   txtorder: {
     padding: 10,

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';;
+import React, {Component} from 'react';
 import {
   Text,
   View,
@@ -7,13 +7,13 @@ import {
   StyleSheet,
   TextInput,
 } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';;
+import TabNavigator from 'react-native-tab-navigator';
 import Home from './Home/Home';
 import Cart from './Cart/Cart';
-import Cuahang from './Cuahang/Cuahang';;
-import Nganhhang from './Nganhhang/Nganhhang';;
-import Taikhoan from './Taikhoan/Taikhoan';;
-import {Dimensionapp} from '../../../unit/Dimensionapp';;
+import Cuahang from './Cuahang/Cuahang';
+import Nganhhang from './Nganhhang/Nganhhang';
+import Taikhoan from './Taikhoan/Taikhoan';
+import {Dimensionapp} from '../../../unit/Dimensionapp';
 import Header from '../Header';
 
 export default class Market extends Component {
@@ -23,16 +23,16 @@ export default class Market extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = {selectedTab: 'home', types: [], products: []};;
+    this.state = {selectedTab: 'home', types: [], products: []};
   }
-  componentDidMount() {
-    fetch('http://localhost:8080/api/')
-      .then(res => res.json())
-      .then(resJSON => {
-        const {type, product} = resJSON;
-        this.setState({types: type, products: product});
-      });
-  }
+  // componentDidMount() {
+  //   fetch('http://localhost:8080/api/')
+  //     .then(res => res.json())
+  //     .then(resJSON => {
+  //       const {type, product} = resJSON;
+  //       this.setState({types: type, products: product});
+  //     });
+  // }
   render() {
     const {types, selectedTab, products} = this.state;
     return (
@@ -133,8 +133,7 @@ export default class Market extends Component {
           </TabNavigator.Item>
         </TabNavigator>
       </View>
-
-        );
+    );
   }
 }
 
