@@ -63,7 +63,7 @@ export default class Market extends Component {
           <TabNavigator.Item
             titleStyle={{fontSize: 15}}
             selected={selectedTab === 'cuahang'}
-            title="Cửa hàng"
+            title="Sản phẩm"
             renderIcon={() => (
               <Image
                 style={styles.image}

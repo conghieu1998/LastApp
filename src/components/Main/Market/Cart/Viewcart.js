@@ -11,9 +11,24 @@ import {
 import {Dimensionapp} from '../../../../unit/Dimensionapp';
 
 export default class Viewcart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fee: 495000,
+      feeShip: 20000,
+    };
+  }
   render() {
     const showAlert = () => {
-      Alert.alert('Số tiền phải thanh toán: 515.000đ');
+      Alert.alert('Thông báo', 'Bạn có muốn thông báo không?', [
+        {
+          text: `Thanh toán`,
+          onPress: () => {
+            Alert.alert(`Thông báo`, `Thanh toán thành công`, [{text: `Ok`}]);
+          },
+        },
+        {text: 'Huỷ'},
+      ]);
     };
     return (
       <View style={styles.wrapper}>
@@ -86,21 +101,23 @@ export default class Viewcart extends Component {
                 <Text style={styles.txtnameprice}>Tiền hàng</Text>
               </View>
 
-              <Text style={styles.txtpricesum}>495.000</Text>
+              <Text style={styles.txtpricesum}>{this.state.fee}</Text>
             </View>
             <View>
               <View style={styles.priceprd}>
                 <Text style={styles.txtnameprice}>Tiền ship</Text>
               </View>
 
-              <Text style={styles.txtpricesum}>20.000</Text>
+              <Text style={styles.txtpricesum}>{this.state.feeShip}</Text>
             </View>
             <View>
               <View style={styles.priceprd}>
                 <Text style={styles.txtnameprice}>Tổng cộng</Text>
               </View>
 
-              <Text style={styles.txtpricesum}>515.000</Text>
+              <Text style={styles.txtpricesum}>
+                {+this.state.fee + +this.state.feeShip}
+              </Text>
             </View>
           </View>
           <TouchableOpacity style={styles.order} onPress={showAlert}>

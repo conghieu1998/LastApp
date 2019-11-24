@@ -10,7 +10,9 @@ import {
 } from 'react-native';
 import Collection from './Collection';
 import Product from './Product';
+import Cuahang from './Cuahang';
 import Header from '../../Header';
+import Mathang from './Mathang';
 
 export default class Home extends Component {
   openMenu() {
@@ -26,6 +28,8 @@ export default class Home extends Component {
         </View>
         <ScrollView style={styles.home}>
           <Collection />
+          <Cuahang />
+          <Mathang />
         </ScrollView>
       </View>
     );
