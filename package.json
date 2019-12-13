@@ -22,7 +22,8 @@
     "react-native-swiper-flatlist": "^2.0.3",
     "react-native-tab-navigator": "^0.3.4",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^1.10.3"
+    "react-navigation-stack": "^1.10.3",
+    "react-number-format": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

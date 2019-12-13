@@ -23,18 +23,10 @@ export default class Market extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = {selectedTab: 'home', types: [], products: []};
+    this.state = {selectedTab: 'cuahang', types: [], topProducts: []};
   }
-  // componentDidMount() {
-  //   fetch('http://localhost:8080/api/')
-  //     .then(res => res.json())
-  //     .then(resJSON => {
-  //       const {type, product} = resJSON;
-  //       this.setState({types: type, products: product});
-  //     });
-  // }
   render() {
-    const {types, selectedTab, products} = this.state;
+    const {types, selectedTab, topProducts} = this.state;
     return (
       <View style={{flex: 1}}>
         {/* <View style={styles.topbar}>
@@ -118,15 +110,18 @@ export default class Market extends Component {
           <TabNavigator.Item
             titleStyle={{fontSize: 15}}
             selected={selectedTab === 'user'}
-            title="Tài khoản"
+            title="Giao hàng"
             renderIcon={() => (
               <Image
                 style={styles.image}
-                source={require('../../../../images/user.png')}
+                source={require('../../../../images/truck-black.png')}
               />
             )}
             renderSelectedIcon={() => (
-              <Image source={require('../../../../images/user-select.png')} />
+              <Image
+                style={styles.image}
+                source={require('../../../../images/icons8-truck-100.png')}
+              />
             )}
             onPress={() => this.setState({selectedTab: 'user'})}>
             <Taikhoan />

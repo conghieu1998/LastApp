@@ -9,22 +9,33 @@ import {
   Alert,
 } from 'react-native';
 import {Dimensionapp} from '../../../../unit/Dimensionapp';
+import NumberFormat from 'react-number-format';
 
 export default class Viewcart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fee: 495000,
+      fee: 232750,
       feeShip: 20000,
+      cartArray: [1, 2, 3],
     };
+  }
+  componentDidMount() {
+    fetch('http://localhost:8080/Market/')
+      .then(res => res.json())
+      .then(resJSON => {
+        const {type, product} = resJSON;
+        console.log(product);
+        this.setState({types: type, topProducts: product});
+      });
   }
   render() {
     const showAlert = () => {
       Alert.alert('Thông báo', 'Bạn có muốn thông báo không?', [
         {
-          text: `Thanh toán`,
+          text: 'Thanh toán',
           onPress: () => {
-            Alert.alert(`Thông báo`, `Thanh toán thành công`, [{text: `Ok`}]);
+            Alert.alert('Thông báo', 'Thanh toán thành công', [{text: 'Ok'}]);
           },
         },
         {text: 'Huỷ'},
@@ -49,50 +60,41 @@ export default class Viewcart extends Component {
           </View>
         </View>
         <ScrollView style={styles.container}>
+          {/* {this.state.cartArray.map(products => ( */}
           <View style={styles.product}>
             <Image
               style={styles.imgprd}
-              source={require('../../../../../images/prd.jpg')}
+              source={require('../../../../../images/taogala.jpg')}
             />
             <View style={{marginTop: 15}}>
-              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
-              <Text style={styles.txtquaility}>1(500g/gói)</Text>
+              <Text style={styles.txtnameprd}>Táo Gala Mỹ</Text>
+              <Text style={styles.txtquaility}>1(500g)</Text>
             </View>
-            <Text style={styles.txtprice}>165.000đ</Text>
+            <Text style={styles.txtprice}>33,000đ</Text>
           </View>
           <View style={styles.product}>
             <Image
               style={styles.imgprd}
-              source={require('../../../../../images/prd.jpg')}
+              source={require('../../../../../images/thitnacvai.jpg')}
             />
             <View style={{marginTop: 15}}>
-              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
+              <Text style={styles.txtnameprd}>Nạc Vai Nõn</Text>
               <Text style={styles.txtquaility}>1(500g/gói)</Text>
             </View>
-            <Text style={styles.txtprice}>165.000đ</Text>
+            <Text style={styles.txtprice}>174,500đ</Text>
           </View>
           <View style={styles.product}>
             <Image
               style={styles.imgprd}
-              source={require('../../../../../images/prd.jpg')}
+              source={require('../../../../../images/bosap.jpg')}
             />
             <View style={{marginTop: 15}}>
-              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
-              <Text style={styles.txtquaility}>1(500g/gói)</Text>
+              <Text style={styles.txtnameprd}>Bơ Sáp</Text>
+              <Text style={styles.txtquaility}>1(500g)</Text>
             </View>
-            <Text style={styles.txtprice}>165.000đ</Text>
+            <Text style={styles.txtprice}>25,250đ</Text>
           </View>
-          <View style={styles.product}>
-            <Image
-              style={styles.imgprd}
-              source={require('../../../../../images/prd.jpg')}
-            />
-            <View style={{marginTop: 15}}>
-              <Text style={styles.txtnameprd}>Sườn Kalbi</Text>
-              <Text style={styles.txtquaility}>1(500g/gói)</Text>
-            </View>
-            <Text style={styles.txtprice}>165.000đ</Text>
-          </View>
+          {/* ))} */}
         </ScrollView>
         <View style={styles.bottom}>
           <View style={styles.price}>
@@ -100,24 +102,40 @@ export default class Viewcart extends Component {
               <View style={styles.priceprd}>
                 <Text style={styles.txtnameprice}>Tiền hàng</Text>
               </View>
-
-              <Text style={styles.txtpricesum}>{this.state.fee}</Text>
+              <NumberFormat
+                value={this.state.fee}
+                displayType={'text'}
+                thousandSeparator={true}
+                renderText={value => (
+                  <Text style={styles.txtpricesum}>{value}</Text>
+                )}
+              />
             </View>
             <View>
               <View style={styles.priceprd}>
                 <Text style={styles.txtnameprice}>Tiền ship</Text>
               </View>
-
-              <Text style={styles.txtpricesum}>{this.state.feeShip}</Text>
+              <NumberFormat
+                value={this.state.feeShip}
+                displayType={'text'}
+                thousandSeparator={true}
+                renderText={value => (
+                  <Text style={styles.txtpricesum}>{value}</Text>
+                )}
+              />
             </View>
             <View>
               <View style={styles.priceprd}>
                 <Text style={styles.txtnameprice}>Tổng cộng</Text>
               </View>
-
-              <Text style={styles.txtpricesum}>
-                {+this.state.fee + +this.state.feeShip}
-              </Text>
+              <NumberFormat
+                value={+this.state.fee + +this.state.feeShip}
+                displayType={'text'}
+                thousandSeparator={true}
+                renderText={value => (
+                  <Text style={styles.txtpricesum}>{value}</Text>
+                )}
+              />
             </View>
           </View>
           <TouchableOpacity style={styles.order} onPress={showAlert}>

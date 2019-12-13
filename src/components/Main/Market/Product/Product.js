@@ -16,6 +16,7 @@ import Cart from '../Cart/Cart';
 
 class Product extends Component {
   render() {
+    console.log(this.props.navigation.getParam.e);
     return (
       <ScrollView style={styles.wrapper}>
         <View style={styles.cardStyle}>
@@ -52,7 +53,7 @@ class Product extends Component {
           </View>
           <View style={styles.footer}>
             <View style={styles.titleContainer}>
-              <Text style={styles.textBlack}>Sườn Kalbi</Text>
+              <Text style={styles.textBlack}>suong</Text>
               <Text style={styles.textHighlight}>165.000đ</Text>
               <Text style={styles.textSmoke}>500g/gói</Text>
             </View>

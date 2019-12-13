@@ -22,22 +22,27 @@ export default class Cuahang extends Component {
             <Image
               style={image}
               source={require('../../../../../images/lotte.png')}
+              resizeMode="center"
             />
             <Image
               style={image}
               source={require('../../../../../images/cuahang1.jpg')}
+              resizeMode="center"
             />
             <Image
               style={image}
               source={require('../../../../../images/cuahang2.png')}
+              resizeMode="center"
             />
             <Image
               style={image}
               source={require('../../../../../images/cuahang3.jpg')}
+              resizeMode="center"
             />
             <Image
               style={image}
               source={require('../../../../../images/cuahang4.jpg')}
+              resizeMode="center"
             />
           </SwiperFlatList>
         </View>

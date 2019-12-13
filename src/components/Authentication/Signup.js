@@ -40,8 +40,18 @@ class Signup extends Component {
           <TextInput style={styles.input} placeholder="Nhập họ tên" />
           <TextInput style={styles.input} placeholder="Nhập tên tài khoản" />
           <TextInput style={styles.input} placeholder="Nhập email" />
-          <TextInput style={styles.input} placeholder="Nhập mật khẩu" />
-          <TextInput style={styles.input} placeholder="Nhập lại mật khẩu" />
+          <TextInput
+            style={styles.input}
+            secureTextEntry
+            autoCorrect={false}
+            placeholder="Nhập mật khẩu"
+          />
+          <TextInput
+            style={styles.input}
+            secureTextEntry
+            autoCorrect={false}
+            placeholder="Nhập lại mật khẩu"
+          />
           <TextInput style={styles.input} placeholder="Nhập số điện thoại" />
           <TouchableOpacity style={styles.signinnow} onPress={showAlert}>
             <Text style={styles.textnow}>ĐĂNG KÝ NGAY</Text>

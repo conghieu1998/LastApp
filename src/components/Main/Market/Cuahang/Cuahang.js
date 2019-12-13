@@ -6,9 +6,10 @@ import {
   Image,
   StyleSheet,
   ScrollView,
+  Navigator,
 } from 'react-native';
 import Header from '../../Header';
-import {Dimensionapp} from '../../../../unit/Dimensionapp';;
+import {Dimensionapp} from '../../../../unit/Dimensionapp';
 import Product from '../Home/Product';
 
 export default class Cuahang extends Component {
@@ -47,4 +48,4 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
   },
-});;
+});
